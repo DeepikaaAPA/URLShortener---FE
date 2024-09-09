@@ -7,6 +7,7 @@ import VerifyResetLink from "./components/VerifyResetLink";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import ShortenURL from "./components/ShortenURL";
+import Shorts from "./components/Shorts";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -36,6 +37,11 @@ const router = createBrowserRouter([
     path: "/shorten",
     element: <ShortenURL></ShortenURL>,
   },
+  {
+    path: "/shorts/:code",
+    element: <Shorts></Shorts>,
+    loader:codeLoader
+  },
 ]);
 function App() {
   return <RouterProvider router={router} />;
@@ -43,6 +49,9 @@ function App() {
 
 function tokenLoader({ params }) {
   return params.token;
+}
+function codeLoader({ params }) {
+  return params.code;
 }
 
 export default App;
