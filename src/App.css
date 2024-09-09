@@ -1,27 +1,3 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-}
 input {
   width: 300px;
-  max-width: 500px;
-  height: 40px;
-}
-
-.card {
-  padding: 2em;
-
-  max-width: 500px;
-}
-.mycontainer {
-  text-align: center;
-  padding: 10px;
-}
-
-label {
-  width: 200px;
-  padding: 10px;
-  text-align: right;
-  margin-right: 30px;
 }

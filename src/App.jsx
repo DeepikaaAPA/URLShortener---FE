@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
@@ -6,9 +5,15 @@ import ForgotPassword from "./components/ForgotPassword";
 import VerifyResetPassword from "./components/VerifyResetPassword";
 import VerifyResetLink from "./components/VerifyResetLink";
 import Register from "./components/Register";
+import Login from "./components/Login";
+import ShortenURL from "./components/ShortenURL";
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Login />,
+  },
+  {
+    path: "/register",
     element: <Register />,
   },
   {
@@ -27,15 +32,13 @@ const router = createBrowserRouter([
     element: <VerifyResetLink />,
     loader: tokenLoader,
   },
+  {
+    path: "/shorten",
+    element: <ShortenURL></ShortenURL>,
+  },
 ]);
 function App() {
-  return (
-    <div className="mycontainer border">
-      <h1>Welcome!!!</h1>
-
-      <RouterProvider router={router} />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 function tokenLoader({ params }) {
