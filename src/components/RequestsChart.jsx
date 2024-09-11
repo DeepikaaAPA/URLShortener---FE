@@ -54,7 +54,7 @@ const RequestsChart = () => {
       .get("/auth/getClickCount/" + monthYear)
       .then((response) => {
         const data = response.data.results;
-        const labels = data.map((item) => item._id);
+        const labels = data.map((item) => item._id + "-" + monthYear);
         const counts = data.map((item) => item.count);
         console.log(data, labels, counts);
         setChartData({
@@ -109,7 +109,7 @@ const RequestsChart = () => {
           ))}
         </select>
       </div>
-      <div>
+      <div className="m-5">
         {chartData?.labels?.length ? (
           <Bar
             data={chartData}

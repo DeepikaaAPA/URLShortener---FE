@@ -18,7 +18,7 @@ const Register = () => {
         email,
         password,
       });
-      setMessage("✔️ You have successfully registered.");
+      setMessage("✔️ You have successfully registered." + response.data.message);
     } catch (error) {
       setMessage(" ❗" + error.response.data.message);
     }

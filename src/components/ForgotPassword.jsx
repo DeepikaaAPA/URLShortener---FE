@@ -15,7 +15,10 @@ function ForgotPassword() {
       .then((response) => {
         setMessage(response.data.message);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setMessage(err?.response?.data?.message);
+      });
   };
 
   return (

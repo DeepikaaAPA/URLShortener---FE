@@ -8,11 +8,16 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import ShortenURL from "./components/ShortenURL";
 import Shorts from "./components/Shorts";
-import { tokenLoader, codeLoader } from "./loaders/paramsLoader";
+import {
+  tokenLoader,
+  codeLoader,
+  shortsParamsLoader,
+} from "./loaders/paramsLoader";
 import userLoader from "./loaders/userLoader";
 import UserDashboardNav from "./wrappers/UserDashboardNav";
 import Logout from "./components/Logout";
 import Views from "./components/Views";
+import ActivateAccount from "./components/ActivateAccount";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +28,12 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
+  },
+  {
+    path: "/activate/:token",
+
+    element: <ActivateAccount />,
+    loader: tokenLoader,
   },
   {
     path: "/forgot-password",
@@ -44,7 +55,7 @@ const router = createBrowserRouter([
   {
     path: "/shorts/:code",
     element: <Shorts></Shorts>,
-    loader: codeLoader,
+    loader: shortsParamsLoader,
   },
   {
     path: "/shorten",

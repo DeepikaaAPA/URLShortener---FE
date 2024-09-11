@@ -26,7 +26,7 @@ const Login = () => {
       .then((res) => {
         console.log(" ✔️ ", res.data);
         alert("Logged in ✔️");
-        navigate("/dashboard");
+        navigate("/shorten");
       })
       .catch((error) => {
         console.error(" ❗ Error:", error);

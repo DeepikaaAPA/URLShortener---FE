@@ -32,16 +32,29 @@ function VerifyResetLink() {
   };
   return (
     <>
-      <label>Enter email id :</label>
-      <input type="email" value={email} onChange={handleEmailChange}></input>
-      <br></br>
-   
-      <button className="m-3 btn btn-primary" onClick={handleSend}>
-        Verify code
-      </button>
-      <br></br>
-      <p className="text-danger">{message}</p>
-      {showForm ? <ResetPassword email={email} /> : null}
+      <div
+        className="container  d-flex flex-column align-items-center vh-100"
+        style={{ maxWidth: "400px", width: "100%" }}
+      >
+        <div className="row mt-5 p-3">
+          <label>Enter email id :</label>
+          <input
+            type="email"
+            value={email}
+            onChange={handleEmailChange}
+          ></input>
+          <br></br>
+
+          <button className="my-2 btn btn-primary" onClick={handleSend}>
+            Verify code
+          </button>
+          <br></br>
+          <p className="text-danger">{message}</p>
+        </div>
+        <div className="row">
+          {showForm ? <ResetPassword email={email} /> : null}
+        </div>
+      </div>
     </>
   );
 }

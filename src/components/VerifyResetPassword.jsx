@@ -32,18 +32,24 @@ function VerifyResetPassword() {
   };
   return (
     <>
-      <label>Enter email id :</label>
-      <input type="email" value={email} onChange={handleEmailChange}></input>
-      <br></br>
-      <label>Enter code:</label>
-      <input type="text" value={code} onChange={handleCodeChange}></input>
-      <br></br>
-      <button className="m-3 btn btn-primary" onClick={handleSend}>
-        Verify code
-      </button>
-      <br></br>
-      <p className="text-danger">{message}</p>
-      {showForm ? <ResetPassword email={email} /> : null}
+      <div
+        className="container  d-flex flex-column align-items-center vh-100"
+        style={{ maxWidth: "400px", width: "100%" }}
+      >
+        <label className="mt-md-3">Enter email id :</label>
+        <input type="email" value={email} onChange={handleEmailChange}></input>
+        <br></br>
+        <label>Enter code:</label>
+        <input type="text" value={code} onChange={handleCodeChange}></input>
+        <br></br>
+        <button className="m-3 btn btn-primary" onClick={handleSend}>
+          Verify code
+        </button>
+        <br></br>
+
+        <p className="text-danger">{message}</p>
+        <div>{showForm ? <ResetPassword email={email} /> : null}</div>
+      </div>
     </>
   );
 }

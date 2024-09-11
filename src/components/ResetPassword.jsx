@@ -15,18 +15,18 @@ const ResetPassword = ({ email }) => {
     }
 
     try {
-      const response = await instance.put(`/auth/resetPassword`, {
+      const response = await instance.put(`/user/resetPassword`, {
         email,
         password,
       });
       setMessage(response.data.message);
     } catch (error) {
-      setMessage(error.response?.data?.message || "An error occurred");
+      setMessage(error?.response?.data?.message || "An error occurred");
     }
   };
 
   return (
-    <div className="container d-flex justify-content-center align-items-center vh-100">
+    <div className="container d-flex ">
       <div
         className="card p-4 shadow-lg"
         style={{ maxWidth: "400px", width: "100%" }}

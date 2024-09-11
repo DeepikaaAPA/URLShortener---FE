@@ -1,15 +1,22 @@
-import { Link, Outlet, useLoaderData } from "react-router-dom";
+import { Link, Outlet, useLoaderData, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const UserDashboardNav = () => {
   const user = useLoaderData();
-
+  const navigate = useNavigate();
+  console.log(user);
+  useEffect(() => {
+    if (!user) {
+      navigate("/");
+    }
+  }, []);
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-warning">
-       
         <div className="container-fluid">
-        <div className="nav-link disabled text-success pe-5 font-italic">Welcome { user.firstname }!
-        </div>
+          <div className="nav-link disabled text-success pe-5 font-italic">
+            Welcome {user?.firstname}!
+          </div>
           <Link className="navbar-brand text-success " to="/shorten">
             Shorten URLs
           </Link>
