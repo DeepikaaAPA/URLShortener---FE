@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import instance from "../services/instance";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLoaderData } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
+  const user = useLoaderData();
+
+  useEffect(() => {
+    if (user) {
+      navigate("/shorten");
+    }
+  }, [user]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -18,7 +26,7 @@ const Login = () => {
       .then((res) => {
         console.log(" ✔️ ", res.data);
         alert("Logged in ✔️");
-        navigate("/shorten");
+        navigate("/dashboard");
       })
       .catch((error) => {
         console.error(" ❗ Error:", error);

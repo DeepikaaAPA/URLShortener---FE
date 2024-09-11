@@ -8,10 +8,17 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import ShortenURL from "./components/ShortenURL";
 import Shorts from "./components/Shorts";
+import { tokenLoader, codeLoader } from "./loaders/paramsLoader";
+import userLoader from "./loaders/userLoader";
+import UserDashboardNav from "./wrappers/UserDashboardNav";
+import Logout from "./components/Logout";
+import Views from "./components/Views";
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Login />,
+    loader: userLoader,
   },
   {
     path: "/register",
@@ -33,25 +40,35 @@ const router = createBrowserRouter([
     element: <VerifyResetLink />,
     loader: tokenLoader,
   },
-  {
-    path: "/shorten",
-    element: <ShortenURL></ShortenURL>,
-  },
+
   {
     path: "/shorts/:code",
     element: <Shorts></Shorts>,
-    loader:codeLoader
+    loader: codeLoader,
+  },
+  {
+    path: "/shorten",
+    element: <UserDashboardNav />,
+    loader: userLoader,
+    children: [
+      {
+        path: "",
+        element: <ShortenURL></ShortenURL>,
+      },
+
+      {
+        path: "view",
+        element: <Views></Views>,
+      },
+    ],
+  },
+  {
+    path: "/logout",
+    element: <Logout />,
   },
 ]);
 function App() {
   return <RouterProvider router={router} />;
-}
-
-function tokenLoader({ params }) {
-  return params.token;
-}
-function codeLoader({ params }) {
-  return params.code;
 }
 
 export default App;

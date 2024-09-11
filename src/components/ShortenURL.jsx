@@ -1,13 +1,20 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { Form, Button, InputGroup, FormControl, Alert } from "react-bootstrap";
 import instance from "../services/instance";
+import { useLoaderData } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTable, faChartBar } from "@fortawesome/free-solid-svg-icons";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+config.autoAddCss = false;
+
 
 const ShortenURL = () => {
   const [longUrl, setLongUrl] = useState("");
   const [shortUrl, setShortUrl] = useState("");
   const [error, setError] = useState("");
-
+  const user = useLoaderData();
+  console.log(user);
   const handleShorten = async () => {
     try {
       const response = await instance.post("/auth/shorten", { longUrl });
