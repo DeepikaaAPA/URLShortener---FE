@@ -3,7 +3,12 @@ import { Form, Button, InputGroup, FormControl, Alert } from "react-bootstrap";
 import instance from "../services/instance";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTable, faChartBar } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTable,
+  faLink,
+  faCut,
+  faChartBar,
+} from "@fortawesome/free-solid-svg-icons";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { useEffect } from "react";
@@ -32,7 +37,7 @@ const ShortenURL = () => {
       <Form>
         <InputGroup className="mb-3">
           <InputGroup.Text>
-            <i className="fas fa-link"></i>
+            <FontAwesomeIcon icon={faLink} />
           </InputGroup.Text>
           <FormControl
             placeholder="Enter long URL"
@@ -41,7 +46,8 @@ const ShortenURL = () => {
           />
         </InputGroup>
         <Button variant="primary" onClick={handleShorten}>
-          <i className="fas fa-cut"></i> Shorten
+          <FontAwesomeIcon icon={faCut} />
+          {" " + "Shorten"}
         </Button>
       </Form>
       {shortUrl && (
