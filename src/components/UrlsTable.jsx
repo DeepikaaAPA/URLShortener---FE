@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-
+import { FRONTEND_URL } from "../config/config";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 import instance from "../services/instance";
-const FRONTEND_URL = "http://localhost:5173/shorts";
+
 const UrlsTable = () => {
   const [data, setData] = useState([]);
 
@@ -14,9 +15,9 @@ const UrlsTable = () => {
   }, []);
 
   return (
-    <div className="">
-      <table className=" table-responsive table table-striped border  table-hover">
-        <thead >
+    <div className=" table-responsive ">
+      <table className="table table-striped border  table-hover table-fixed">
+        <thead>
           <tr className="table-primary">
             <th>No</th>
             <th className="table-head">Long URL</th>
@@ -36,8 +37,8 @@ const UrlsTable = () => {
                 {" "}
                 <a
                   className="text-dark"
-                  href={`${FRONTEND_URL}/${item.shortnerCode}`}
-                >{`${FRONTEND_URL}/${item.shortnerCode}`}</a>
+                  href={`${FRONTEND_URL}/shorts/${item.shortnerCode}`}
+                >{`${FRONTEND_URL}/shorts/${item.shortnerCode}`}</a>
               </td>
             </tr>
           ))}

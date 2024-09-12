@@ -1,6 +1,6 @@
 import { Link, Outlet, useLoaderData, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 const UserDashboardNav = () => {
   const user = useLoaderData();
   const navigate = useNavigate();

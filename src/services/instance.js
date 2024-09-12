@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseURL = "https://urlshortener-be.onrender.com/api/v1";
+import { baseURL } from "../config/config";
 // define the axios instance
 const instance = axios.create({
   baseURL,

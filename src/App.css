@@ -1,13 +1,26 @@
 input {
   width: 300px;
 }
-td a {
-  text-decoration: none;
-  font-size: small;
+.table-fixed {
+  width: 100%;
+  table-layout: fixed;
+  font-size: smaller;
 }
-td a:hover {
-  text-decoration: underline;
+
+.table-fixed thead th,
+.table-fixed tbody td {
+  white-space: normal; /* Allow text to wrap */
+  word-wrap: break-word; /* Break long words */
 }
-.table-head {
-  width: 30%;
+
+.table-fixed thead th:nth-child(1),
+.table-fixed tbody td:nth-child(1) {
+  width: 10%;
+}
+
+.table-fixed thead th:nth-child(2),
+.table-fixed tbody td:nth-child(2),
+.table-fixed thead th:nth-child(3),
+.table-fixed tbody td:nth-child(3) {
+  width: 45%;
 }

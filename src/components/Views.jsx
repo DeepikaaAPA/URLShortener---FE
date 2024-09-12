@@ -14,13 +14,13 @@ const Views = () => {
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="col-md-6 pe-5">
+        <div className="col-md-7 pe-5">
           <h4 className="m-4 text-success">
             <FontAwesomeIcon icon={faTable} /> URLs Table
           </h4>
           <UrlsTable />
         </div>
-        <div className="col-md-6 pe-5">
+        <div className="col-md-5 pe-5">
           <h4 className="m-4 text-success">
             <FontAwesomeIcon icon={faChartBar} /> Requests Chart
           </h4>
