@@ -12,14 +12,9 @@ const UserDashboardNav = () => {
   }, []);
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-warning">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <div className="nav-link disabled text-success pe-5 font-italic">
-            Welcome {user?.firstname}!
-          </div>
-          <Link className="navbar-brand text-success " to="/shorten">
-            Shorten URLs
-          </Link>
+          <span className="navbar-brand">Welcome, {user.firstname}</span>
           <button
             className="navbar-toggler"
             type="button"
@@ -31,23 +26,20 @@ const UserDashboardNav = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse " id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item  ">
-                <Link
-                  className="nav-link active text-success"
-                  aria-current="page"
-                  to="view"
-                >
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ms-auto">
+              <li className="nav-item">
+                <Link className="nav-link" to="/shorten">
+                  URL Shortener
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="view">
                   Dashboard
                 </Link>
               </li>
               <li className="nav-item">
-                <Link
-                  className="nav-link active text-success"
-                  aria-current="page"
-                  to="/logout"
-                >
+                <Link className="nav-link" to="/logout">
                   Logout
                 </Link>
               </li>
