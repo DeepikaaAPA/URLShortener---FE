@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-
+import axios from "axios";
+import { baseURL } from "../config/config";
 import instance from "../services/instance";
 import { useNavigate, useLoaderData } from "react-router-dom";
 
@@ -20,8 +21,8 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     // Make API POST request with login details
-    await instance
-      .post("/auth/login", { email, password })
+    await axios
+      .post(baseURL + "/auth/login", { email, password })
 
       .then((res) => {
         console.log(" ✔️ ", res.data);
