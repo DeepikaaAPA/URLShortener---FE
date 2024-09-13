@@ -25,6 +25,7 @@ const Login = () => {
 
       .then((res) => {
         console.log(" ✔️ ", res.data);
+        localStorage.setItem("token", res.data.token);
         alert("Logged in ✔️");
         navigate("/shorten");
       })
