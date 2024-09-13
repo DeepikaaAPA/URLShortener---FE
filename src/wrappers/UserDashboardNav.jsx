@@ -14,7 +14,7 @@ const UserDashboardNav = () => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <span className="navbar-brand">Welcome, {user.firstname}</span>
+          <span className="navbar-brand">Welcome, {user?.firstname}</span>
           <button
             className="navbar-toggler"
             type="button"
