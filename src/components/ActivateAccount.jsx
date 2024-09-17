@@ -6,10 +6,11 @@ function ActivateAccount() {
   const token = useLoaderData();
   const [message, setMessage] = useState("Activating...");
   useEffect(() => {
+    alert(token);
     instance
       .get(`/auth/activate/${token}`)
       .then((response) => {
-        setMessage(response.data);
+        setMessage(response.data.message);
       })
       .catch((error) =>
         setMessage(error?.response?.data?.message || "Network error")

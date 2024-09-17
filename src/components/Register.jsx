@@ -18,9 +18,11 @@ const Register = () => {
         email,
         password,
       });
-      setMessage("✔️ You have successfully registered." + response.data.message);
+      setMessage(
+        "✔️ You have successfully registered." + response.data.message
+      );
     } catch (error) {
-      setMessage(" ❗" + error.response.data.message);
+      setMessage(" ❗" + error?.response?.data?.message);
     }
   };
 
@@ -38,7 +40,7 @@ const Register = () => {
               type="text"
               value={firstname}
               onChange={(e) => setFisrtname(e.target.value)}
-              placeholder="Last name"
+              placeholder="First name"
               required
             />
           </div>

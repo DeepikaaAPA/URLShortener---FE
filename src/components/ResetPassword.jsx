@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Link } from "react-router-dom";
 import instance from "../services/instance";
 
 const ResetPassword = ({ email }) => {
@@ -20,6 +20,8 @@ const ResetPassword = ({ email }) => {
         password,
       });
       setMessage(response.data.message);
+      setPassword("");
+      setConfirmPassword("");
     } catch (error) {
       setMessage(error?.response?.data?.message || "An error occurred");
     }
@@ -56,7 +58,10 @@ const ResetPassword = ({ email }) => {
             Reset Password
           </button>
         </form>
-        {message && <p className="text-warning">{message}</p>}
+        {message && <p className="text-info">{message}</p>}
+        <p>
+          <Link to="/">Login</Link>
+        </p>
       </div>
     </div>
   );
