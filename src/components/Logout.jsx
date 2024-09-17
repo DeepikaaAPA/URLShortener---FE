@@ -28,6 +28,9 @@ const Logout = () => {
     //   });
 
     localStorage.setItem("token", "");
+    setTimeout(() => {
+      navigate("/");
+    }, 500);
   }, []);
 
   return <div>Logging out...</div>;
