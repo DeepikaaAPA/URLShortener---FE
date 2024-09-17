@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { baseURL } from "../config/config";
+import { Link } from "react-router-dom";
 import instance from "../services/instance";
 import { useNavigate, useLoaderData } from "react-router-dom";
 
@@ -82,12 +83,12 @@ const Login = () => {
             Login
           </button>
           <div className="text-center mt-3">
-            <a href="/forgot-password">Forgot password?</a>
+            <Link to="/forgot-password">Forgot password?</Link>
           </div>
           <div className="text-center mt-3 ">
-            <a className="btn btn-success" href="/register">
+            <Link className="btn btn-success" to="/register">
               Register a new account
-            </a>
+            </Link>
           </div>
         </form>
       </div>
