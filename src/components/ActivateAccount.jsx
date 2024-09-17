@@ -6,7 +6,6 @@ function ActivateAccount() {
   const token = useLoaderData();
   const [message, setMessage] = useState("Activating...");
   useEffect(() => {
-    alert(token);
     instance
       .get(`/auth/activate/${token}`)
       .then((response) => {
